@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deposit</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#072c66,#0d47a1 45%,#2e6cc5);
+}
+
+.container{
+    width:420px;
+    padding:40px;
+    background:linear-gradient(160deg,#ffffff,#eef5ff);
+    border:1px solid #d6e3fb;
+    border-radius:18px;
+    box-shadow:0 22px 46px rgba(6,28,70,0.32);
+    color:#0f172a;
+}
+
+h2{
+    text-align:center;
+    margin-bottom:26px;
+    font-size:30px;
+    color:#0d47a1;
+}
+
+.input-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#334155;
+    font-size:15px;
+    font-weight:500;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    background:#f8fbff;
+    border:1px solid #bfd2f4;
+    border-radius:10px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#0d47a1;
+    box-shadow:0 0 0 4px rgba(13,71,161,.16);
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#0d47a1;
+    color:#fff;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#0a3d8f;
+    transform:translateY(-2px);
+    box-shadow:0 10px 20px rgba(13,71,161,.3);
+}
+
+.back-link{
+    margin-top:16px;
+    text-align:center;
+}
+
+.back-link a{
+    color:#0d47a1;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+}
+
+.back-link a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Deposit Money</h2>
+
+    <form method="POST" action="{{ url_for('deposit') }}">
+        <div class="input-group">
+            <label>Amount</label>
+            <input type="number" name="amount" min="1" placeholder="Enter deposit amount" required>
+        </div>
+
+        <button type="submit">Deposit</button>
+    </form>
+
+    <div class="back-link">
+        <a href="{{ url_for('balance') }}">Check Balance</a>
+        <br>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>

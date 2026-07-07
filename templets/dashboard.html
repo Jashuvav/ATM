@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding-top:120px;
+    background:linear-gradient(135deg,#072c66,#0d47a1 45%,#2e6cc5);
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 28px;
+    background:rgba(5,26,66,0.88);
+    border-bottom:1px solid rgba(214,227,251,.25);
+    backdrop-filter:blur(8px);
+}
+
+.brand{
+    color:#ffffff;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:.3px;
+}
+
+.nav-links{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    align-items:center;
+}
+
+.welcome-text{
+    color:#ffffff;
+    font-size:14px;
+    font-weight:600;
+}
+
+.cookie-pill{
+    color:#dbeafe;
+    font-size:12px;
+    font-weight:600;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid rgba(219,234,254,.45);
+    background:rgba(13,71,161,.35);
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#dbeafe;
+    font-size:14px;
+    font-weight:600;
+    padding:8px 12px;
+    border-radius:10px;
+    transition:.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#0d47a1;
+    background:#ffffff;
+}
+
+.container{
+    width:450px;
+    background:linear-gradient(160deg,#ffffff,#eef5ff);
+    border:1px solid #d6e3fb;
+    border-radius:18px;
+    padding:40px;
+    box-shadow:0 22px 46px rgba(6,28,70,0.32);
+    text-align:center;
+    color:#0f172a;
+}
+
+h2{
+    margin-bottom:30px;
+    font-size:32px;
+    color:#0d47a1;
+}
+
+.btn{
+    width:100%;
+    padding:15px;
+    margin:12px 0;
+    border:none;
+    border-radius:12px;
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.deposit{
+    background:#0d47a1;
+}
+
+.withdraw{
+    background:#1565c0;
+}
+
+.balance{
+    background:#1976d2;
+}
+
+.statement{
+    background:#1e88e5;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    filter:brightness(0.95);
+    box-shadow:0 12px 24px rgba(13,71,161,.28);
+}
+
+@media (max-width:760px){
+    body{
+        padding-top:160px;
+    }
+
+    .navbar{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="brand">SBI ATM</div>
+    <div class="nav-links">
+        <span class="welcome-text">Welcome, {{ user_name or 'Guest' }}</span>
+        {% if user_email %}
+            <span class="cookie-pill">{{ user_name }}</span>
+        {% else %}
+            <span class="cookie-pill">No active session</span>
+        {% endif %}
+        <a href="{{ url_for('landing') }}">Home</a>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('deposit') }}">Deposit</a>
+        <a href="{{ url_for('withdraw') }}">Withdraw</a>
+        <a href="{{ url_for('statements') }}">Statements</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <h2>SBI Banking Dashboard</h2>
+
+    <a href="{{ url_for('deposit') }}"><button class="btn deposit">Deposit</button></a>
+
+    <a href="{{ url_for('withdraw') }}"><button class="btn withdraw">Withdraw</button></a>
+
+    <a href="{{ url_for('balance') }}"><button class="btn balance">Balance</button></a>
+
+    <a href="{{ url_for('statements') }}"><button class="btn statement">Statements</button></a>
+
+</div>
+
+</body>
+</html>

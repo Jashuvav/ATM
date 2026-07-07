@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landing Page</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    background:linear-gradient(135deg,#072c66,#0d47a1 45%,#2e6cc5);
+    color:#0f172a;
+}
+
+/* Card */
+.container{
+    width:400px;
+    background:linear-gradient(160deg,#ffffff,#eef5ff);
+    padding:40px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 20px 42px rgba(6,28,70,0.3);
+    border:1px solid #d6e3fb;
+}
+
+/* Heading */
+h1{
+    font-size:32px;
+    font-weight:700;
+    color:#0d47a1;
+    margin-bottom:10px;
+}
+
+/* Description */
+p{
+    color:#334155;
+    font-size:16px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+/* Buttons */
+.btn{
+    width:100%;
+    padding:14px;
+    margin:12px 0;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:all .25s ease;
+}
+
+/* Login */
+.login{
+    background:#0d47a1;
+    color:#fff;
+}
+
+.login:hover{
+    background:#0a3d8f;
+    transform:translateY(-2px);
+}
+
+/* Register */
+.register{
+    background:#eaf2ff;
+    color:#0d47a1;
+    border:2px solid #0d47a1;
+}
+
+.register:hover{
+    background:#0d47a1;
+    color:#fff;
+}
+
+/* Responsive */
+@media (max-width:480px){
+    .container{
+        width:90%;
+        padding:30px;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    p{
+        font-size:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1> Welcome to SBI </h1>
+    <p>Login or Register to continue your journey.</p>
+
+    <a href="{{ url_for('login') }}"><button class="btn login">Login</button></a>
+    <a href="{{ url_for('register') }}"><button class="btn register">Register</button></a>
+</div>
+
+</body>
+</html>

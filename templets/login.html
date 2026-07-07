@@ -1,0 +1,118 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Poppins',sans-serif;
+    }
+
+    body{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        min-height:100vh;
+        background:linear-gradient(135deg,#072c66,#0d47a1 45%,#2e6cc5);
+    }
+
+    .container{
+        width:400px;
+        padding:40px;
+        background:linear-gradient(160deg,#ffffff,#eef5ff);
+        border-radius:18px;
+        border:1px solid #d6e3fb;
+        box-shadow:0 22px 46px rgba(6,28,70,0.32);
+        color:#0f172a;
+    }
+
+    h2{
+        text-align:center;
+        margin-bottom:30px;
+        font-size:30px;
+        color:#0d47a1;
+    }
+
+    .input-box{
+        margin-bottom:20px;
+    }
+
+    label{
+        display:block;
+        margin-bottom:8px;
+        font-size:15px;
+        font-weight:500;
+        color:#334155;
+    }
+
+    input{
+        width:100%;
+        padding:13px;
+        border:1px solid #bfd2f4;
+        outline:none;
+        border-radius:10px;
+        font-size:16px;
+        background:#f8fbff;
+    }
+
+    input:focus{
+        border-color:#0d47a1;
+        box-shadow:0 0 0 4px rgba(13,71,161,0.16);
+    }
+
+    button{
+        width:100%;
+        padding:14px;
+        margin-top:15px;
+        border:none;
+        border-radius:12px;
+        background:#0d47a1;
+        color:white;
+        font-size:18px;
+        font-weight:600;
+        cursor:pointer;
+        transition:.3s;
+    }
+
+    button:hover{
+        transform:translateY(-3px);
+        background:#0a3d8f;
+        box-shadow:0 12px 24px rgba(13,71,161,0.35);
+    }
+    </style>
+    </head>
+
+    <body>
+
+    <div class="container">
+
+        <h2>Login</h2>
+
+        <form method="post">
+
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="input-box">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Enter your password" required>
+            </div>
+
+            <button type="submit">Login</button>
+            <p style="text-align:center; margin-top:15px;">Don't have an account? <a href="{{ url_for('register') }}" style="color:#0d47a1; text-decoration:none;">Register</a></p>
+
+        </form>
+
+    </div>
+
+    </body>
+    </html>
