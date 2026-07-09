@@ -4,6 +4,7 @@ from pprint import pprint
 from flask import Flask, request, redirect, url_for, render_template, make_response
 
 user_details = {}
+
 app = Flask(__name__, template_folder='templets')
 
 
@@ -22,7 +23,7 @@ def get_current_user():
 def log_user_state(action, user_email=None):
     snapshot = {
         'action': action,
-        'user_email': user_email,
+        'user_email': user_email, 
         'user_details': dict(user_details),
     }
     pprint(snapshot)
@@ -57,6 +58,7 @@ def register():
                 'Amount': 0,
                 'transactions': [],
             }
+
             log_user_state('register', user_email)
             return redirect(url_for('login'))
         return 'User Already existed'
@@ -158,6 +160,7 @@ def withdraw():
                         email=user_email,
                         balance=user_details[user_email]['Amount']
                     )
+                
                 return 'Insufficient balance'
             return 'Amount should be multiple of 100'
         return 'Amount should be greater than 0'
@@ -180,7 +183,7 @@ def balance():
 @app.route('/logout', methods=['GET'])
 def logout():
     user_email = request.cookies.get('UserId', '').strip()
-    response = make_response(redirect(url_for('home')))
+    response = make_response(redirect(url_for('login')))
     response.set_cookie('UserId', '', expires=0)
     log_user_state('logout', user_email or None)
     return response
